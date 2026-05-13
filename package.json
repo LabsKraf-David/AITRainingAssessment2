@@ -1,0 +1,29 @@
+{
+  "name": "ai-training-project-2",
+  "version": "1.0.0",
+  "description": "E2E tests (API + UI/POM) for www.codeslaps.com",
+  "scripts": {
+    "seed":              "node seedTestData.js",
+    "test:api":          "node tests/userCreation.test.js",
+    "test:ui":           "npx playwright test",
+    "test:ui:chromium":  "npx playwright test --project=chromium",
+    "test:ui:firefox":   "npx playwright test --project=firefox",
+    "test:ui:webkit":    "npx playwright test --project=webkit",
+    "test:ui:headed":    "npx playwright test --headed --project=chromium",
+    "test:ui:debug":     "npx playwright test --debug --project=chromium",
+    "test:ui:report":    "npx playwright show-report reports/playwright-html",
+    "test":              "npm run test:api && npm run test:ui:chromium",
+    "test:all":          "npm run seed && npm run test"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "xlsx":   "^0.18.5"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.44.0",
+    "playwright":       "^1.44.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}
